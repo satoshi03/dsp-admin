@@ -10,7 +10,7 @@ class CreativeInline(admin.TabularInline):
 
 
 class CreativeAdmin(admin.ModelAdmin):
-    fields = CreativeInline.fields
+    fields = ('campaign', 'title', 'description', 'url', 'image_url', 'approval_status', 'delivery_status')
     list_display = ('campaign', 'title', 'description', 'url', 'image_url', 'approval_status', 'delivery_status')
 
 

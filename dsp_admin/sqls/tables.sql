@@ -47,3 +47,14 @@ CREATE TABLE creative (
   description varchar(255) not null,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE campaign_stat (
+    id int auto increment not null,
+    campaign_id int not null REFERENCES campaign(id),
+    impression int not null,
+    click int not null,
+    conversion int not null,
+    consumption int not null,
+    delivered_at date not null,
+    PRIMARY KEY (id)
+);

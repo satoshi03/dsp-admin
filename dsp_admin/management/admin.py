@@ -34,6 +34,7 @@ class CampaignAdmin(admin.ModelAdmin):
     inlines = [CreativeInline]
     fields = CampaignInline.fields
     list_display = (
+        'id',
         'product',
         'name',
         'daily_budget',
@@ -50,6 +51,7 @@ class CampaignAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = [CampaignInline]
+    list_display = ('name', 'product_type')
 
 
 admin.site.register(Campaign, CampaignAdmin)

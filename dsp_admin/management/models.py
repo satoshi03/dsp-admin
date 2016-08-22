@@ -8,7 +8,7 @@ class Client(models.Model):
         verbose_name = 'クライアント'
         verbose_name_plural = verbose_name
 
-
+    id = models.IntegerField(primary_key=True)
     name = models.CharField('クライアント名', max_length=255, default="")
     address = models.CharField('住所', max_length=65535, default="")
 
@@ -28,6 +28,7 @@ class Product(models.Model):
         (APP, 'app'),
     )
 
+    id = models.IntegerField(primary_key=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='クライアント')
     name = models.CharField('商品名', max_length=255)
     product_type = models.IntegerField('商品種別', choices=PRODUCT_TYPE_CHOICES, default=WEB)
@@ -71,6 +72,7 @@ class Campaign(models.Model):
         (LUCK_OF_FUNDS, '予算超過'),
     )
 
+    id = models.IntegerField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='広告商品')
     name = models.CharField('キャンペーン名', max_length=255)
     daily_budget = models.IntegerField('日予算', default=0)
@@ -108,6 +110,7 @@ class Creative(models.Model):
         (START, '配信'),
     )
 
+    id = models.IntegerField(primary_key=True)
     campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE, verbose_name='キャンペーン')
     title = models.CharField('タイトル', max_length=30)
     description = models.CharField('説明', max_length=255)
